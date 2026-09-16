@@ -10,5 +10,21 @@ data class Fraction(val numerateur: Int, val denominateur: Int = 1) {
         return Fraction(numerateur * autre.denominateur + autre.numerateur * denominateur,
             denominateur * autre.denominateur)
     }
+
+    operator fun minus(autre: Fraction): Fraction {
+        return Fraction(numerateur * autre.denominateur - autre.numerateur * denominateur,
+            denominateur * autre.denominateur)
+    }
+
+    operator fun times(autre: Fraction): Fraction {
+        return Fraction((numerateur * autre.numerateur),
+        (denominateur * autre.denominateur))
+    }
+
+    operator fun unaryMinus(): Fraction {
+        return Fraction(-numerateur,
+            denominateur)
+    }
+
     override fun toString(): String = "$numerateur/$denominateur"
 }

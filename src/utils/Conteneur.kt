@@ -8,10 +8,10 @@ class Conteneur<T>(val contenu: T, val poidsInitial : Double) {
         private set(value) {
             field = if(value < 0.0) 0.0 else value
         }
-    fun ajouterPoids(quantite: Double){
-        poids += if(quantite > 0 ) quantite else 0.0
+    fun ajouterPoids(poidsAjoute: Double){
+        require(poidsAjoute >= 0){"Le poids à ajouté doit être superieur ou égal à 0"}
+        poids += poidsAjoute
     }
     override fun toString(): String = " ${if (poidsInitial == poids) "Etat initial" 
-    else "Après + ${poids - poidsInitial}t"} " +
-            ": Conteneur -> Contenu : $contenu | Poids total : $poids tonnes"
+    else "Après + ${poids - poidsInitial}t"} : Conteneur -> Contenu : $contenu | Poids total : $poids tonnes"
 }

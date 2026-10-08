@@ -1,4 +1,9 @@
+import java.lang.Math.pow
 import kotlin.math.abs
+import kotlin.math.sin
+import kotlin.math.PI
+import kotlin.math.pow
+
 
 fun calculer(x: Double, f: (Double) -> Double): Double {
     return f(x)
@@ -10,13 +15,18 @@ fun repeter(fois: Int, action: (Int) -> Unit) {
     }
 }
 
-fun integrer(a: Double, b: Double, n: Int, f: (Double) -> Double) {
-    var cumul: Double
+fun integrer(a: Double, b: Double, n: Int, f: (Double) -> Double): Double {
+    var x: Double = 0.0
+    var somme: Double = 0.0
     for (i in 1..n) {
-
+        x = a + (i - 0.5) * (b - a) / n
+        somme += f(x)
     }
-    //(b - a) / n × ()
-    // x = a + (i - 0.5) × (b - a) / n
+    return (b - a) / n * somme
+}
+
+fun calculerVAN(fluxFutur: Double, taux: Double, annees: Double, calcul: (Double) -> Double): Double {
+    return calcul((fluxFutur) / (1 + taux).pow(annees))
 }
 
 fun main(){
@@ -49,6 +59,10 @@ fun main(){
 
 //    repeter(3){println("Tour n°$it")}
 
+//    println(integrer(0.0, 1.0, 1000) { it })
+//    println(integrer(0.0, 1.0, 1000) { it * it })
+//    println(integrer(0.0, Math.PI, 1000) { sin(it) })
 
+    println()
 
 }

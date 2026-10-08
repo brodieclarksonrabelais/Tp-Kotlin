@@ -1,0 +1,6 @@
+- Partie 1 : nullabilté(appels sécurisés; opérateur elvis; val/var; smart casting; tests unitaires;
+générécité(<Int>); polymorphisme avec interface;)
+
+- Partie 2 : fonctions d'ordre superieurs et lambda (ex: valeur actuelle)
+
+- Partie 3 : collections
